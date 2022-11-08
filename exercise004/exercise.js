@@ -26,7 +26,27 @@ document.querySelector("#createPost").addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
+  const cleanFormFields = () => e.target.reset();
+
   console.log(formProps);
+  const data = {
+    title: formProps.title,
+    body: formProps.content,
+    userId: formProps.userSelect,
+  };
+
+  showSpinner();
+
+  axios
+    .post("https://jsonplaceholder.typicode.com/posts", { data })
+    .then((data) => {
+      console.log(data);
+    })
+    .finally(() => {
+      showToast("jupii sukces", "success");
+      hideSpinner();
+      cleanFormFields();
+    });
 
   /**
    * Miejsce na twój kod

@@ -4,9 +4,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./loader.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="./toast.js"></script>
+    <link rel="stylesheet" href="./loader.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
     <title>Document</title>
   </head>
@@ -44,6 +56,20 @@
 
         <button id="submit">Submit</button>
       </div>
+
+      <div>
+        <h2>POSTS</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Post Id</th>
+              <th>Title</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="postsTable"></tbody>
+        </table>
+      </div>
       <br /><br />
       <div>
         <h2>Exercise 2</h2>
@@ -73,7 +99,10 @@
         </form>
       </div>
     </div>
-
-    <script src="./exercise001/exercise.js"></script>
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+    <script src="./app.js"></script>
+    <script src="./exercise003/exercise.js"></script>
   </body>
 </html>

@@ -3,12 +3,17 @@
  * i są dostępne dzięki backendowi
  */
 const todos = [
-  "pouczyć się JSa",
-  "zrobić zakupy",
-  "uzupełnić ankietę",
-  "pooglądać netflixa",
+  { id: 1, content: "pouczyć się JSa" },
+  { id: 2, content: "zrobić zakupy" },
+  { id: 3, content: "uzupełnić ankietę" },
+  { id: 4, content: "pooglądać netflixa" },
 ];
-const users = ["Jane", "Joe", "Json", "Jack"];
+const users = [
+  { id: 1, content: "Jane" },
+  { id: 2, content: "Joe" },
+  { id: 3, content: "Json" },
+  { id: 4, content: "Jack" },
+];
 
 /* zmienna potrzeba do wykonania zadania */
 let results;
