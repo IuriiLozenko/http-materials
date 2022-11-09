@@ -9,10 +9,10 @@ const todos = [
   { id: 4, content: "pooglądać netflixa" },
 ];
 const users = [
-  { id: 1, content: "Jane" },
-  { id: 2, content: "Joe" },
-  { id: 3, content: "Json" },
-  { id: 4, content: "Jack" },
+  { id: 1, name: "Jane" },
+  { id: 2, name: "Joe" },
+  { id: 3, name: "Json" },
+  { id: 4, name: "Jack" },
 ];
 
 /* zmienna potrzeba do wykonania zadania */
