@@ -14,7 +14,7 @@
  *
  */
 
-const _URL = "https://jsonplaceholder.typicode.com/todos";
+const _URL = "https://jsonplaceholder.typicode.com/posts/";
 
 function load(url, callback) {
   const xhr = new XMLHttpRequest();
@@ -40,6 +40,12 @@ function load(url, callback) {
  * utwórz funckje deleteItem która wykonuje zapytanie HTTP typu DELETE
  * endpoint na który trzeba wykonać request to /posts/:id gdzie id to number
  * co to jest endpoint ❓❓❓
+ * 
+ * /posts/1/comments
+/albums/1/photos
+/users/1/albums
+/users/1/todos
+/users/1/posts
  *
  * sprawdź jakie są dostępne eventy na które można reagować
  * eventy ❓❓❓
@@ -50,10 +56,61 @@ function load(url, callback) {
  *
  */
 
+// const idToDele = prompt("podaj id do usunięcia");
+
+// const _URL1 = `https://jsonplaceholder.typicode.com/posts/${idToDele}`;
+
+function deleteItem(url, callback) {
+  const xhr = new XMLHttpRequest();
+
+  // musicie "przypiąć" funkcje strzałkową która obłuży zmiane "zmiennej" readyState
+  xhr.onreadystatechange = () => {
+    console.log({ readyState: xhr.readyState });
+
+    if (xhr.readyState === 4) {
+      console.log({ status: xhr.status });
+      callback(xhr.response);
+
+      if (xhr.status === 200) {
+        console.log("usunięcie się powiodło");
+      }
+    }
+  };
+
+  // musicie określić jaką metode musicie zastosować chcemy usunąć czyli?
+  xhr.open("DELETE", url);
+
+  // musicie ostatecznie wystartować/uruchomić request pewną metodą po jej wywołaniu rozpocznie sie request
+  xhr.send();
+}
+
+// deleteItem(_URL1, (response) => {
+//   console.log(response);
+// });
+
 /**
  * stwórz funkcje która pobiera komentarze posta określnego w parametrze, jako parametr przekaż postId zgodnie z wymaganiami API
  * w celu ożywienia apki możesz użyć funkcji promot która pobierze od Ciebie postId
  */
+
+/**
+ * https://jsonplaceholder.typicode.com/comments?postId=1
+ */
+
+// const id_from_prompt = prompt("Podaj id posta:");
+// const post_url = `https://jsonplaceholder.typicode.com/comments?postId=${id_from_prompt}`;
+// const getComments = (url, callback) => {
+//   const xhr = new XMLHttpRequest();
+//   xhr.onreadystatechange = () => {
+//     if (xhr.readyState === 4) {
+//       callback(xhr.response);
+//     }
+//   };
+//   xhr.open("GET", url);
+//   xhr.send("");
+// };
+
+// getComments(post_url, console.log);
 
 /**
  * zadanie 2 częściowe
@@ -75,32 +132,44 @@ function load(url, callback) {
  * 
 /posts/1/comments
 /albums/1/photos
+
+
+
+
 /users/1/albums
 /users/1/todos
 /users/1/posts
  * 
  */
 
-document.querySelector("#collectionSelect").addEventListener("change", (e) => {
-  const collectionName = e.target.value; // todos || posts || albums
+const getUsersData = (userId, collectionName, callback) => {
+  const url = `https://jsonplaceholder.typicode.com/users/${userId}/${collectionName}`;
 
-  /**
-   * Miejsce na twój kod
-   *
-   *
-   *
-   */
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+      callback(xhr.response);
+    }
+  };
+
+  xhr.open("GET", url);
+
+  xhr.send();
+};
+
+let collectionName = "todos";
+
+let userId = "1";
+
+document.querySelector("#collectionSelect").addEventListener("change", (e) => {
+  const _collectionName = e.target.value; // todos || posts || albums
+  collectionName = _collectionName;
 });
 
 document.querySelector("#userId").addEventListener("change", (e) => {
-  const userId = e.target.valueAsNumber;
-
-  /**
-   * Miejsce na twój kod
-   *
-   *
-   *
-   */
+  const _userId = e.target.valueAsNumber;
+  userId = _userId;
 });
 
 document.querySelector("#submit").addEventListener("click", () => {
@@ -110,4 +179,7 @@ document.querySelector("#submit").addEventListener("click", () => {
    *
    *
    */
+  getUsersData(userId, collectionName, console.log);
+
+  console.log("click");
 });

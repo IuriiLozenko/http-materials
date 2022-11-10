@@ -16,6 +16,40 @@
  * .then((json) => console.log(json));
  *
  */
+// const xhr = new XMLHttpRequest();
+showSpinner();
+hideSpinner();
+/**
+ * 1
+ */
+
+const getPosts = () => {
+  /**
+   * 2
+   */
+
+  return fetch("https://jsonplaceholder.typicode.com/posts");
+};
+
+getPosts()
+  .then(() => {
+    /**
+     * 3
+     */
+  })
+  .catch(() => {
+    /**
+     * 4
+     */
+  })
+  .finally(() => {
+    /**
+     * 5
+     */
+  });
+/**
+ * 6
+ */
 
 /**
  * utwórz funkcje getPosts która pobiera posty ze znanego Ci już API https://jsonplaceholder.typicode.com/posts
@@ -27,11 +61,19 @@
  *
  * part 2
  * dodaj "opcjonalny" parametr do funkcji który może służyć do sparametryzowania requestu
- * czyli po ludzku dodaj parametr i ifa który sprawdza czy ten parametr jest
- * jeżeli nie ma zrób request pod ten url https://jsonplaceholder.typicode.com/posts4
- * jeżeli id jest to doklej tego IDka do adresu URL
+ * czyli po ludzku dodaj parametr ifa który sprawdza czy ten parametr jest
+ * jeżeli nie ma zrób request pod ten url https://jsonplaceholder.typicode.com/posts
+ * jeżeli id jest to doklej tego IDka do końca adresu URL (konkatenacja stringów)
  * https://jsonplaceholder.typicode.com/posts/${parametr} // w tym przypadku id postu
  *
+ */
+
+/**
+ * jak użyć fetcha do stworzenia rekordu?
+ *
+ * metoda POST + JSON.stringify(body) + nałówke content type
+ *
+ * przykład na nowym api
  */
 
 /**
@@ -48,19 +90,19 @@
  *
  */
 
-document.querySelector("#createPost").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-  const formProps = Object.fromEntries(formData);
-  console.log(formProps);
+// document.querySelector("#createPost").addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const formData = new FormData(e.target);
+//   const formProps = Object.fromEntries(formData);
+//   console.log(formProps);
 
-  /**
-   * Miejsce na twój kod
-   *
-   *
-   *
-   */
-});
+//   /**
+//    * Miejsce na twój kod
+//    *
+//    *
+//    *
+//    */
+// });
 
 /**
  *
@@ -75,18 +117,18 @@ document.querySelector("#createPost").addEventListener("submit", (e) => {
  *
  */
 
-document.querySelector("#createPost").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-  const formProps = Object.fromEntries(formData);
-  console.log(formProps);
-  /**
-   * Miejsce na twój kod
-   *
-   *
-   *
-   */
-});
+// document.querySelector("#createPost").addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const formData = new FormData(e.target);
+//   const formProps = Object.fromEntries(formData);
+//   console.log(formProps);
+//   /**
+//    * Miejsce na twój kod
+//    *
+//    *
+//    *
+//    */
+// });
 
 /**
  *
@@ -102,18 +144,18 @@ document.querySelector("#createPost").addEventListener("submit", (e) => {
  *
  */
 
-document.querySelector("#createPost").addEventListener("submit", (e) => {
-  e.preventDefault();
+// document.querySelector("#createPost").addEventListener("submit", (e) => {
+//   e.preventDefault();
 
-  processData(e);
+//   processData(e);
 
-  /**
-   * Miejsce na twój kod
-   *
-   *
-   *
-   */
-});
+//   /**
+//    * Miejsce na twój kod
+//    *
+//    *
+//    *
+//    */
+// });
 
 /**
  *

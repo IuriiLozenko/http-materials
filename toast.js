@@ -5,7 +5,13 @@ const colors = {
   info: "blue",
 };
 
-function showToast(message, variant = "info") {
+/**
+ *
+ * @param {*} message wiadomość dla usera
+ * @param {*} variant kolory red | green | yellow | blue
+ */
+
+function showToast(message = "", variant = "info") {
   Toastify({
     text: message,
     duration: 3000,
