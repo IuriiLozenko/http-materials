@@ -39,7 +39,7 @@ document.querySelector("#usersTable").addEventListener("click", (e) => {
   }
 });
 
-function onDeleteClick(callback = console.log) {
+function onUserDeleteClick(callback = console.log) {
   document.querySelector("#usersTable").addEventListener("click", (e) => {
     if (e.target.dataset.userid) {
       callback(e.target.dataset.userid);

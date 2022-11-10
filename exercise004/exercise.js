@@ -22,6 +22,74 @@
  *
  */
 
+// fetch("https://jsonplaceholder.typicode.com/posts/1/comments")
+//   .then((response) => response.json())
+//   .then((json) => console.log(json));
+
+axios
+  .get("https://jsonplaceholder.typicode.com/posts")
+  .then((response) => {
+    console.log(response);
+
+    console.log(response.data);
+  })
+  .catch(() => {});
+
+const createPost = () => {
+  const newPost = {
+    userId: 10,
+    title: "at nam consequatur ea labore ea harum",
+    body: "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut",
+  };
+
+  return axios.post("https://jsonplaceholder.typicode.com/posts", newPost);
+};
+
+createPost()
+  .then(() => {
+    showToast("udało się");
+  })
+  .catch(() => {
+    showToast("nie udało się");
+  });
+
+// const editBlogPost = (id, updatedBlogPost) => {
+//   return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+//     method: "PUT",
+//     body: JSON.stringify(updatedBlogPost),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+// };
+
+// axios.post('https://jsonplaceholder.typicode.com/posts').then((response)=>{
+
+// })
+
+// axios.delte('https://jsonplaceholder.typicode.com/posts').then((response)=>{
+
+// })
+
+// axios.patch('https://jsonplaceholder.typicode.com/posts').then((response)=>{
+
+// })
+
+// axios.put('https://jsonplaceholder.typicode.com/posts').then((response)=>{
+
+// })
+
+// axios
+//   .get("/user?ID=12345")
+//   .then(function (response) {
+//     // handle success
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     // handle error
+//     console.log(error);
+//   });
+
 /**
  * utwórz funkcje getPosts która pobiera posty ze znanego Ci już API https://jsonplaceholder.typicode.com/posts
  * do wykonania zadania użyj nowo poznanej funkcji fetch
